@@ -1,0 +1,43 @@
+---
+title: 'ESM 262: Assignment 3'
+author: "Emma Siegfried & Lauren Kaapcke"
+date: "May 22, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment
+
+1) Write a function that takes as input
+
+    * a table that has prices for different fish
+ 
+    * a table that has the number caught for each fish species for each location
+ 
+    * each location is in a different column
+ 
+    * each fish is in a different row 
+ 
+
+2) Function output will be
+
+    * most frequently caught fish in each location
+ 
+    * total revenue for each location
+ 
+    * total fisheries revenue sum
+ 
+    * if user requests it graph of revenue by location and total revenue (as text)
+ 
+ 
+3) Place your function in an *.R file
+ 
+ 
+4) Generate some example data for your function; and show how this is created and used in an R markdown document
+ 
+ 
+5) Submit as usual as a git link on GauchoSpace
+ 
