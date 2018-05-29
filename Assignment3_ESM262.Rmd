@@ -6,12 +6,13 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
+
 ```
 
 ## Assignment
 
-1) Write a function that summarizes fish catches for different locations that taks as input:
+1) Write a function that summarizes fish catches for different locations that takes as input:
 
     -- a table that has prices for different fish
    
@@ -20,6 +21,43 @@ knitr::opts_chunk$set(echo = TRUE)
     -- each location is in a different column
     
     -- each fish is in a different row 
+
+**Price Table**
+```{r tidy=TRUE}
+
+#Variables:
+fish_name <- sample(c("tuna", "salmon", "cod", "tilapia",
+                      "parrot", "sturgeon", "catfish", 
+                      "rockfish", "pollock", "flounder"))
+
+price <- round(runif(min = 2, max = 10, n = 10), digits = 2)
+
+#Table: 
+price_table <- cbind(fish_name, price)
+
+```
+
+
+**Catch Table**
+```{r}
+
+#Variables:
+locations <- LETTERS[seq(from = 1, to = 10)]
+
+fish_catch <- round(runif(min = 0, max = 20, n = 10), digits = 0)
+
+#Matrix:
+table_catch <- matrix(ncol = length(locations), nrow = length(fish_name))
+for (i in 1:length(fish_name))
+  table_catch[,i] = round(runif(min = 0, max = 20, n = 10))
+
+table_catch = as.data.frame(table_catch)
+
+rownames(table_catch) <- fish_name
+colnames(table_catch) <- locations
+
+```
+
 
   b. Function output will be
   
