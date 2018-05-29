@@ -11,33 +11,45 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assignment
 
-1) Write a function that takes as input
+1) Write a function that summarizes fish catches for different locations that taks as input:
 
-    * a table that has prices for different fish
- 
-    * a table that has the number caught for each fish species for each location
- 
-    * each location is in a different column
- 
-    * each fish is in a different row 
- 
+    -- a table that has prices for different fish
+   
+    -- a table that has the number caught for each fish species for each location
+    
+    -- each location is in a different column
+    
+    -- each fish is in a different row 
 
-2) Function output will be
+  b. Function output will be
+  
+    -- most frequently caught fish in each location
+    
+    -- total revenue for each location
+    
+    -- total fisheries revenue sum
+    
+    -- if user requests it graph of revenue by location and total revenue (as text)
 
-    * most frequently caught fish in each location
+  c. Place your function in an *.R file
  
-    * total revenue for each location
+2) Write a second function that estimates fish growth rate as a function of temperature, using the following equation from Bjoornsson et al., 2007
+
+    "The relationship between specific growth rate (G) and temp in C (T) estimated by a third order polynomial (G = a + b*T + c*T^2 + d*T^3), where a,b,c,d are parameters."
  
-    * total fisheries revenue sum
+4) In an R Markdown document:
+
+    - Generate some example data for your fish market function; 
+    
+    - Show how this is created and used
  
-    * if user requests it graph of revenue by location and total revenue (as text)
- 
- 
-3) Place your function in an *.R file
- 
- 
-4) Generate some example data for your function; and show how this is created and used in an R markdown document
- 
- 
-5) Submit as usual as a git link on GauchoSpace
+5) Make sure all functions and the dataset are documented
+
+6) Provide at least one test for each function 
+
+7) Export your function
+
+8) Include package and Rmarkdown in Git repository
+
+9) Submit as usual as a git link on GauchoSpace
  
