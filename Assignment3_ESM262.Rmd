@@ -10,9 +10,17 @@ knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 
 ```
 
+```{r}
+library(tidyverse)
+library(stringr)
+
+```
+
+
 ## Assignment
 
-1) Write a function that summarizes fish catches for different locations that takes as input:
+1) Write a function that summarizes fish catches for different locations 
+    Input:
 
     -- a table that has prices for different fish
    
@@ -33,7 +41,7 @@ fish_name <- sample(c("tuna", "salmon", "cod", "tilapia",
 price <- round(runif(min = 2, max = 10, n = 10), digits = 2)
 
 #Table: 
-price_table <- cbind(fish_name, price)
+price_table <- cbind(fish_name, as.numeric(price))
 
 ```
 
@@ -52,9 +60,17 @@ for (i in 1:length(fish_name))
   table_catch[,i] = round(runif(min = 0, max = 20, n = 10))
 
 table_catch = as.data.frame(table_catch)
+table_catch$price = price
+
 
 rownames(table_catch) <- fish_name
 colnames(table_catch) <- locations
+
+
+#key is the column name for the new column holding pre-existing column names
+#values inside the existing columns, go into a new column of "values"
+#value is the column name for the new column holding the pre-existing columns
+
 
 ```
 
@@ -69,8 +85,23 @@ colnames(table_catch) <- locations
     
     -- if user requests it graph of revenue by location and total revenue (as text)
 
+ 
   c. Place your function in an *.R file
  
+
+```{r}
+
+source("fish_calcs.R")
+
+fish_calcs(fish_name, table_catch)
+
+table_catch
+
+```
+
+
+
+
 2) Write a second function that estimates fish growth rate as a function of temperature, using the following equation from Bjoornsson et al., 2007
 
     "The relationship between specific growth rate (G) and temp in C (T) estimated by a third order polynomial (G = a + b*T + c*T^2 + d*T^3), where a,b,c,d are parameters."
