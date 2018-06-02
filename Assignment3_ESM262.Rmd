@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```{r}
 library(tidyverse)
 library(stringr)
+library(testthat)
 
 ```
 
@@ -40,8 +41,11 @@ fish_name <- sample(c("tuna", "salmon", "cod", "tilapia",
 
 price <- round(runif(min = 2, max = 10, n = 10), digits = 2)
 
-#Table: 
-price_table <- cbind(fish_name, as.numeric(price))
+#Table 1: 
+price_table <- as.data.frame(cbind(fish_name, price))
+price_table <- rename(price_table, Price = price)
+price_table$Price <- as.character(price_table$Price)
+price_table$Price <- as.numeric(price_table$Price)
 
 ```
 
@@ -60,8 +64,6 @@ for (i in 1:length(fish_name))
   table_catch[,i] = round(runif(min = 0, max = 20, n = 10))
 
 table_catch = as.data.frame(table_catch)
-table_catch$price = price
-
 
 rownames(table_catch) <- fish_name
 colnames(table_catch) <- locations
@@ -89,17 +91,14 @@ colnames(table_catch) <- locations
   c. Place your function in an *.R file
  
 
-```{r}
+```{r warning=FALSE}
 
 source("fish_calcs.R")
 
-fish_calcs(fish_name, table_catch)
+fish_calcs(table_catch, price_table, plot = TRUE)
 
-table_catch
 
 ```
-
-
 
 
 2) Write a second function that estimates fish growth rate as a function of temperature, using the following equation from Bjoornsson et al., 2007
